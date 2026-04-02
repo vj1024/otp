@@ -80,8 +80,8 @@ func main() {
 
 	// 验证 Secret 格式
 	if !isValidSecret(secret) {
-		fmt.Fprintf(os.Stderr, "警告: Secret 可能不是有效的 base32 编码\n")
-		fmt.Fprintf(os.Stderr, "如果验证失败，请检查 Secret 是否正确\n")
+		fmt.Fprintf(os.Stderr, "错误: Secret 不是有效的 base32 编码: `%s`\n", secret)
+		os.Exit(1)
 	}
 
 	// 生成当前 TOTP
